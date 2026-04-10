@@ -1,0 +1,11 @@
+{
+  "name": "anti-gravity-project",
+  "version": "1.0.0",
+  "description": "Anti-Gravity Motion Modeled Using Quadratic Equations",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

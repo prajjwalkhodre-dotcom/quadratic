@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Anti-Gravity Motion Modeler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar-nav">
+        <ul>
+            <li><a href="#title-page">1</a></li>
+            <li><a href="#math-model">2</a></li>
+            <li><a href="#graphing">3</a></li>
+            <li><a href="#analysis">4</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <!-- 1. Title Page -->
+        <section id="title-page" class="slide title-slide">
+            <div class="glow-circle"></div>
+            <h1>Anti-Gravity Motion<br>Modeled Using Quadratic Equations</h1>
+            <h2 class="subtitle">An Academic Exploration of Parabolic Trajectories in Hypothetical Fields</h2>
+            <div class="author-info">
+                <p>Presented in: Deep Blue, Cyan & White</p>
+            </div>
+            <a href="#math-model" class="scroll-down">
+                <span>Explore the Math</span>
+                <div class="arrow-down">↓</div>
+            </a>
+        </section>
+
+        <!-- 2. Interactive Input Model -->
+        <section id="math-model" class="slide">
+            <h2 class="section-title">01. Interactive Model</h2>
+            
+            <div class="card glass-card input-section">
+                <h3>Define Your Quadratic Equation</h3>
+                <p>Format: y = <b>a</b>x² + <b>b</b>x + <b>c</b></p>
+                <div class="input-row">
+                    <span class="equation-text">y = </span>
+                    <input type="number" id="coeff-a" value="-1" step="0.1">
+                    <span class="equation-text">x² + </span>
+                    <input type="number" id="coeff-b" value="4" step="0.1">
+                    <span class="equation-text">x + </span>
+                    <input type="number" id="coeff-c" value="5" step="0.1">
+                </div>
+                <button id="update-btn" class="cyan-btn">Update Model</button>
+            </div>
+
+            <div class="equation-box display-box" id="display-eq">
+                y = -1x² + 4x + 5
+            </div>
+
+            <div class="grid-2">
+                <div class="card glass-card">
+                    <h3>Term Breakdown</h3>
+                    <div class="term-list">
+                        <div class="term-item">
+                            <span class="term" id="term-a-val">-1x²</span>
+                            <span class="explanation"><strong>Gravity/Acceleration Effect:</strong> Controls the curve direction. Negatives pull downwards like gravity. Positives push upwards.</span>
+                        </div>
+                        <div class="term-item">
+                            <span class="term" id="term-b-val">+4x</span>
+                            <span class="explanation cyan-text"><strong>Velocity Lift:</strong> Initial upward/downward thrust applied to the object.</span>
+                        </div>
+                        <div class="term-item">
+                            <span class="term" id="term-c-val">+5</span>
+                            <span class="explanation"><strong>Initial Position:</strong> Starting height at x=0.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Graphical Representation -->
+        <section id="graphing" class="slide">
+            <h2 class="section-title">02. Graphical Representation</h2>
+            <div class="graph-container">
+                <div class="chart-wrapper">
+                    <canvas id="motionChart"></canvas>
+                </div>
+                <div class="graph-insights">
+                    <h3>Calculated Trajectory Points</h3>
+                    <ul>
+                        <li><strong>Vertex:</strong> <span class="cyan-text" id="out-vertex">...</span></li>
+                        <li><strong>Axis of Symmetry:</strong> <span class="cyan-text" id="out-axis">...</span></li>
+                        <li><strong>Y-Intercept:</strong> <span class="cyan-text" id="out-yint">...</span></li>
+                        <li><strong>Parabola Opens:</strong> <span class="cyan-text" id="out-direction">...</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Solutions & Intervals -->
+        <section id="analysis" class="slide">
+            <h2 class="section-title">03. Real Roots & Intervals</h2>
+            <div class="grid-2">
+                <div class="card interval-card">
+                    <h3>Interval Behavior</h3>
+                    <p>Based on the vertex axis: x = <span id="int-axis">...</span></p>
+                    
+                    <div class="interval-box">
+                        <h4>Increasing On</h4>
+                        <p class="cyan-text" id="out-inc">...</p>
+                    </div>
+
+                    <div class="interval-box">
+                        <h4>Decreasing On</h4>
+                        <p class="cyan-text" id="out-dec">...</p>
+                    </div>
+                </div>
+
+                <div class="card math-card">
+                    <h3>Calculated Roots (x-intercepts)</h3>
+                    <p>Solving for y = 0 allows us to find exact moments passing the x-axis.</p>
+                    <div class="computation">
+                        <p class="cyan-text" id="out-roots" style="font-size:1.5rem; margin-top:20px;">...</p>
+                    </div>
+                    <p class="solution-interpretation" id="root-msg">
+                        ...
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
